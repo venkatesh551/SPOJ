@@ -1,6 +1,8 @@
 '''
 Created on 22-Jul-2015
 
+NITK06 - MODIFY SEQUENCE
+
 @author: Venkatesh
 '''
 
