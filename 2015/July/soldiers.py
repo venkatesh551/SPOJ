@@ -7,8 +7,8 @@ Created on 22-Jul-2015
 '''
 
 
-def read_int_list():
-    return [int(x) for x in raw_input().split()]
+def read_long_list():
+    return [long(x) for x in raw_input().split()]
 
 
 def read_int():
@@ -16,13 +16,16 @@ def read_int():
 
 
 def max_no_of_soldiers(m, n):
-    pass
+    last_term = m + n - 1
+    first_term = last_term - 4 * (last_term/4)
+    n = 1 + (last_term - first_term)/4
+    return n * (last_term + first_term) / 2
 
 
 def main():
     tc = read_int()
     for _ in xrange(tc):
-        m, n = read_int_list()
+        m, n = read_long_list()
         print max_no_of_soldiers(m, n)
 
 if __name__ == '__main__':

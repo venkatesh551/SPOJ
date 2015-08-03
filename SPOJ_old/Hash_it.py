@@ -7,15 +7,15 @@ class HashTable:
     def hash(s):
         total = 0
         for i in xrange(len(s)):
-            total = (total + ord(s[i]) * (i+1))%101
+            total = (total + ord(s[i]) * (i+1)) % 101
         return (total * 19) % 101
 
     def insert(self, s):
         ind = HashTable.hash(s)
+        if self.is_exist(s):
+            return
         for j in xrange(20):
-            pos = (ind + j * (j + 23))%101
-            if self.A[pos] == s:
-                return
+            pos = (ind + j * (j + 23)) % 101
             if self.A[pos] is None:
                 self.A[pos] = s
                 self._cnt += 1
@@ -30,6 +30,14 @@ class HashTable:
                 self._cnt -= 1
                 return
 
+    def is_exist(self, key):
+        ind = HashTable.hash(key)
+        for j in xrange(20):
+            pos = (ind + j * (j + 23)) % 101
+            if self.A[pos] == key:
+                return True
+        return False
+
     def count(self):
         return self._cnt
 
@@ -40,13 +48,14 @@ class HashTable:
                 result.append(str(ind) + ':' + ele)
         return result
 
+
 def solve():
     t = int(raw_input())
     for _ in xrange(t):
         ht = HashTable()
         n = int(raw_input())
         for __ in xrange(n):
-            op,key = raw_input().rstrip().split(':')
+            op, key = raw_input().rstrip().split(':')
             if op == "ADD":
                 ht.insert(key)
             else:
@@ -54,6 +63,6 @@ def solve():
         print ht.count()
         for ele in ht.get():
             print ele
-            
+
 if __name__ == '__main__':
     solve()
