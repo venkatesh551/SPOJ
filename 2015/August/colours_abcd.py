@@ -2,6 +2,9 @@
 Created on 13-Aug-2015
 
 @author:  Venkatesh
+
+ABCD - Colours A, B, C, D
+
 '''
 
 from collections import defaultdict
