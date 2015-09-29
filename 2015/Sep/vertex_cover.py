@@ -20,12 +20,11 @@ def main():
         a, b = read_int_list()
         degree[a] += 1
         degree[b] += 1
-    degree.sort(reverse=True)
-    cnt, idx = 0, 0
-    while idx < n and cnt < n-1:
-        cnt += degree[idx]
-        idx += 1
-    print idx
+    cnt = 0
+    for ele in degree:
+        if ele == 1:
+            cnt += 1
+    print n-cnt
 
 if __name__ == '__main__':
     main()
